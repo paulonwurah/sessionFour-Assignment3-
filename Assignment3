@@ -1,0 +1,8 @@
+Word Count
+
+val inputRDD = sc.parallelize(“README.txt”)
+
+val wordCount =  inputRDD.flatMap(x  => x.split(“ ”)).map(x => (x,1)).reduceByKey((x,y) => (x +y))
+
+wordCount.collect()
+
